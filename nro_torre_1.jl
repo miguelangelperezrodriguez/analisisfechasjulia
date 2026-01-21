@@ -83,3 +83,36 @@ for i in l_pasos_compuesto
     push!(l_pasos_compuesto_suma,suma_cadena(i))
 end
 println(l_pasos_compuesto_suma)
+
+# ZODIACO COMPLETO
+# PISCIS,ACUARIO,...  en orden inverso
+entradaszodiaco=[1980,1983,1986,1989,1992,1995,1998,2001,2004,2007,2010,2013]
+signozodiaco=["Piscis","Acuario","Capricornio","Sagitario","Escorpio","Libra","Virgo","Leo","Cáncer","Géminis","Tauro","Aries"]
+pasos_zodiaco=[]
+for fecha_zodiaco in entradaszodiaco
+    l_pasos_anyo=(pasos(fecha_zodiaco))
+    suma=sum(l_pasos_anyo)
+    
+    l_pasos_compuesto=[]
+    for i in l_pasos
+        push!(l_pasos_compuesto,string(i)*string(suma))
+    end
+
+    l_pasos_compuesto_suma=[]
+    for i in l_pasos_compuesto
+        push!(l_pasos_compuesto_suma,suma_cadena(i))
+    end
+    push!(pasos_zodiaco,l_pasos_compuesto_suma)
+end
+
+println("Recorrido Zodiaco")
+tvalor=tuple()
+zodiaco=[]
+idx_signo=1
+for i in signozodiaco
+    valores=popfirst!(pasos_zodiaco)
+    tvalor=(entradaszodiaco[idx_signo],i,valores)
+    push!(zodiaco,tvalor)
+    global idx_signo+=1
+end
+println(zodiaco)
