@@ -55,7 +55,7 @@ function guardar_datos(anyo,casas,loco,sinusar)
     for (casa_salida,arcanos_salida) in casas
         txtarcanos=""
         for arcano in arcanos_salida
-            txtarcanos=txtarcanos * string(arcano) * " " 
+            txtarcanos=txtarcanos * string(arcano) * ";" 
         end
         DBInterface.execute(stmtarcanos,(anyo,parse(Int,casa_salida),txtarcanos))   
     end

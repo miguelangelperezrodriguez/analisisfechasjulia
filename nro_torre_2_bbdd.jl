@@ -57,7 +57,6 @@ if (entrada_uso_bbdd=="SI")
         dicc_casas=usar_numeros(lista_reducida)
         casa_loco=situar_loco(nropasos,dicc_casas)    
         arcanos_sin_usar=arcanos_sin_uso(dicc_casas)
-
         guardar_datos(fecha,dicc_casas,casa_loco,arcanos_sin_usar)
 
     end
